@@ -10,6 +10,7 @@ type XmlMsg struct {
     *XmlMsgMedia
     *XmlMsgImage
     *XmlMsgVoice
+    *XmlMsgVoiceRest
     *XmlMsgVideo
     *XmlMsgLocation
     *XmlMsgLink
@@ -44,6 +45,9 @@ type XmlMsgImage struct {
 
 type XmlMsgVoice struct {
     Format string
+}
+
+type XmlMsgVoiceRest struct {
     Recognition string
 }
 
