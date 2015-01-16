@@ -4,6 +4,15 @@ import (
 //    "encoding/xml"
 )
 
+func String(s string) *string{
+    return &s
+}
+
+func CDATAString(s string) *string {
+    str := "<![CDATA[" + s +" ]]>"
+    return &str
+}
+
 type XmlMsg struct {
     XmlMsgHead
     *XmlMsgText
@@ -29,7 +38,7 @@ type XmlMsg struct {
 //}
 //
 //func Marshal(v interface{}) ([]byte, error) {
-//    //add <!CdData[]> for *string_t
+//    //add <!CdData[]> for *string
 //    values := reflect.ValueOf(v)
 //    for i := 0; i < values.NumField(); i++ {
 //        value := values.Field(i)
@@ -41,7 +50,7 @@ type XmlMsg struct {
 //    }
 //}
 
-//func AddCdData(s **string_t) **string_t {
+//func AddCdData(s **string) **string {
 //    return s
 //}
 //msgtype:text,image,voice,video,location,link,event
@@ -49,60 +58,60 @@ type XmlMsg struct {
 
 
 type XmlMsgHead struct {
-    ToUserName *string_t
-    FromUserName *string_t
+    ToUserName *string
+    FromUserName *string
     CreateTime int64
-    MsgType *string_t
+    MsgType *string
     MsgId int64
 }
 
 type XmlMsgText struct {
-    Content *string_t
+    Content *string
 }
 
 type XmlMsgMedia struct {
-    MediaId *string_t
+    MediaId *string
 }
 type XmlMsgImage struct {
-    PicUrl *string_t
+    PicUrl *string
 }
 
 type XmlMsgVoice struct {
-    Format *string_t
+    Format *string
 }
 
 type XmlMsgVoiceRest struct {
-    Recognition *string_t
+    Recognition *string
 }
 
 type XmlMsgVideo struct {
-    ThumbMediaId *string_t
+    ThumbMediaId *string
 }
 
 type XmlMsgLocation struct {
-    Location_X *string_t
-    Location_Y *string_t
-    Scale *string_t
-    Label *string_t
+    Location_X *string
+    Location_Y *string
+    Scale *string
+    Label *string
 }
 
 type XmlMsgLink struct {
-    Title *string_t
-    Description *string_t
-    Url *string_t
+    Title *string
+    Description *string
+    Url *string
 }
 
 //event:subscribe,SCAN,LOCATION,CLICK,VIEW
 type XmlMsgEvent struct {
-    Event *string_t
-    EventKey *string_t
-    Ticket *string_t
+    Event *string
+    EventKey *string
+    Ticket *string
     XmlMsgEventLocation
 }
 
 type XmlMsgEventLocation struct {
-    Latitude *string_t
-    Longitude *string_t
-    Precision *string_t
+    Latitude *string
+    Longitude *string
+    Precision *string
 }
 
