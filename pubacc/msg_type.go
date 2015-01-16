@@ -6,13 +6,14 @@ import (
 
 type XmlMsg struct {
     XmlMsgHead
-    XmlMsgText
-    XmlMsgImage
-    XmlMsgVoice
-    XmlMsgVideo
-    XmlMsgLocation
-    XmlMsgLink
-    XmlMsgEvent
+    *XmlMsgText
+    *XmlMsgMedia
+    *XmlMsgImage
+    *XmlMsgVoice
+    *XmlMsgVideo
+    *XmlMsgLocation
+    *XmlMsgLink
+    *XmlMsgEvent
 }
 
 func ParseMsg(buf []byte) (*XmlMsg, error) {
@@ -34,18 +35,19 @@ type XmlMsgText struct {
     Content string
 }
 
-type XmlMsgImage struct {
+type XmlMsgMedia struct {
     MediaId string
+}
+type XmlMsgImage struct {
     PicUrl string
 }
 
 type XmlMsgVoice struct {
-    MediaId string
     Format string
+    Recognition string
 }
 
 type XmlMsgVideo struct {
-    MediaId string
     ThumbMediaId string
 }
 
