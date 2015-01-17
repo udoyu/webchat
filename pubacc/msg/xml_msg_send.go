@@ -1,7 +1,7 @@
 package msg
 
 import "encoding/xml"
-import "github.com/udoyu/webchat/pubacc/tools"
+import "github.com/udoyu/webchat/tools"
 
 type XmlMsgS struct {
     XMLName xml.Name `xml:"xml"`
