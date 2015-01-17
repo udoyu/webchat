@@ -1,18 +1,5 @@
 package pubacc
 
-import (
-//    "encoding/xml"
-)
-
-func String(s string) *string{
-    return &s
-}
-
-func CDATAString(s string) *string {
-    str := "<![CDATA[" + s +" ]]>"
-    return &str
-}
-
 type XmlMsg struct {
     XmlMsgHead
     *XmlMsgText
@@ -26,43 +13,14 @@ type XmlMsg struct {
     *XmlMsgEvent
 }
 
-//var STRING_PTR reflect.Type
-//
-//func init() {
-//    s := ""
-//    STRING_PTR = reflect.TypeOf(&s)
-//}
-//
-//func Unmarshal (data []byte v interface{}) error {
-//    return xml.Unmarshal(data, v)
-//}
-//
-//func Marshal(v interface{}) ([]byte, error) {
-//    //add <!CdData[]> for *string
-//    values := reflect.ValueOf(v)
-//    for i := 0; i < values.NumField(); i++ {
-//        value := values.Field(i)
-//        if value.Type() == STRING_PTR {
-//            if v.Elem().CanSet() {
-//                v.Elem().SetString(*AddCdData(v))
-//            }
-//        }
-//    }
-//}
-
-//func AddCdData(s **string) **string {
-//    return s
-//}
 //msgtype:text,image,voice,video,location,link,event
-
-
 
 type XmlMsgHead struct {
     ToUserName *string
     FromUserName *string
     CreateTime int64
     MsgType *string
-    MsgId int64
+    MsgId *int64
 }
 
 type XmlMsgText struct {
