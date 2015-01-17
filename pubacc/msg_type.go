@@ -14,11 +14,19 @@ type XmlMsg struct {
 }
 
 //msgtype:text,image,voice,video,location,link,event
+const (
+    TEXT = "text"
+    IMAGE = "image"
+    VOICE = "voice"
+    LOCATION = "location"
+    LINK = "link"
+    EVENT = "event"
+)
 
 type XmlMsgHead struct {
     ToUserName *string
     FromUserName *string
-    CreateTime int64
+    CreateTime *int64
     MsgType *string
     MsgId *int64
 }
@@ -60,11 +68,19 @@ type XmlMsgLink struct {
 }
 
 //event:subscribe,SCAN,LOCATION,CLICK,VIEW
+const (
+    SUBSCRIBE = "subscribe"
+    SCAN = "SCAN"
+    LOCATION = "LOCATION"
+    CLICK = "CLICK"
+    VIEW = "VIEW"
+)
+
 type XmlMsgEvent struct {
     Event *string
     EventKey *string
     Ticket *string
-    XmlMsgEventLocation
+    *XmlMsgEventLocation
 }
 
 type XmlMsgEventLocation struct {
