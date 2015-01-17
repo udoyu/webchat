@@ -1,0 +1,21 @@
+package menu;
+
+message MenuSt
+{
+    repeated ButtonSt button = 1;
+}
+
+message ButtonSt
+{
+    optional string type = 1;
+    required string name = 2;
+    optional string key = 3;
+    optional string url = 4;
+    repeated string sub_button = 5;
+}
+
+message ErrorSt
+{
+    required int32 errcode = 1;
+    required string errmsg = 2;
+}
